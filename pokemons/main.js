@@ -16,10 +16,7 @@ async function main() {
             base_experience: pokemon.base_experience,
             types: pokemon.pokemontypes.map(e => {
                 categories[e.type.name] = categories[e.type.name] + 1 || 1;
-                return {
-                    id: e.slot,
-                    name: e.type.name,
-                }
+                return e.type.name
             }),
         });
 
