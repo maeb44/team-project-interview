@@ -1,0 +1,20 @@
+{
+  "grass": 156,
+  "poison": 106,
+  "fire": 109,
+  "flying": 154,
+  "water": 192,
+  "bug": 106,
+  "normal": 160,
+  "electric": 114,
+  "ground": 96,
+  "fairy": 88,
+  "fighting": 109,
+  "psychic": 142,
+  "rock": 104,
+  "steel": 99,
+  "ice": 69,
+  "ghost": 96,
+  "dragon": 117,
+  "dark": 99
+}
