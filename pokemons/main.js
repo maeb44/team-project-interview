@@ -11,6 +11,7 @@ async function main() {
         newArray.push({
             id: pokemon.id,
             name: pokemon.name,
+            image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`,
             weight: pokemon.weight,
             height: pokemon.height,
             base_experience: pokemon.base_experience,
