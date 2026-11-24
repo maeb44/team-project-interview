@@ -21,18 +21,16 @@ export type Pokemon = {
 
 export type Filters = {
   filterTypes: Category[];
-  minHP: number;
-  maxHP: number;
-  minAttack: number;
-  maxAttack: number;
-  minDefense: number;
-  maxDefense: number;
-  minSpecAttack: number;
-  maxSpecAttack: number;
-  minSpecDefense: number;
-  maxSpecDefense: number;
-  minSpeed: number;
-  maxSpeed: number;
+  hp: minMax;
+  attack: minMax;
+  defense: minMax;
+  specAttack: minMax;
+  specDefense: minMax;
+  speed: minMax;
+};
+type minMax = {
+  min: number;
+  max: number;
 };
 
 type FavoritePokemon = {
