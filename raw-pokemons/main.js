@@ -35,7 +35,23 @@ query CardListQuery {
         pokemoncries {
             cries
         }
-        
+        pokemonstats {
+            pokemon_id
+            id
+            base_stat
+            stat {
+                id
+                statnames(where: {language: {id: {_eq: 9}}}) {
+                id
+                language {
+                    id
+                }
+                language_id
+                name
+                stat_id
+                }
+            }
+        }
     }
 }
 `;
