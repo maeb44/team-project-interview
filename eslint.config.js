@@ -5,7 +5,7 @@ import js from '@eslint/js';
 
 export default defineConfig(
   {
-    ignores: ['dist/**', 'node_modules/**'],
+    ignores: ['dist/**', 'node_modules/**', 'coverage'],
   },
   js.configs.recommended,
   tseslint.configs.recommended,
@@ -13,6 +13,16 @@ export default defineConfig(
     files: ['src/**/*.{ts,tsx}'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
     },
   },
   prettier,
