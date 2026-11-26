@@ -1,0 +1,35 @@
+.pokemon_filters {
+  width: 500px;
+  border: 1px solid #06c;
+  border-radius: 8px;
+  padding: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pokemon_filters__range_block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pokemon_filters__range_block label {
+  width: 100%;
+  color: #06c;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.pokemon_filters__range_block > div {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+}
+
+.pokemon_filters__range_block input {
+  border: 1px solid #06c;
+  padding: 8px;
+  border-radius: 8px;
+}

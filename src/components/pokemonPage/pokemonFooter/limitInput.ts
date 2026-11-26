@@ -1,6 +1,7 @@
-import { renderPokemon } from './pokemonArrayDiv';
+import { app } from '../../app';
+import { getPage } from './pageInput';
 
-export const limitInput = (): HTMLDivElement => {
+export const limitInput = (limit: number): HTMLDivElement => {
   const inputId = 'limit';
 
   const label = document.createElement('label');
@@ -12,8 +13,13 @@ export const limitInput = (): HTMLDivElement => {
   input.setAttribute('type', 'number');
   input.setAttribute('min', '1');
   input.setAttribute('max', '100');
-  input.setAttribute('value', '10');
-  input.addEventListener('change', () => renderPokemon());
+  input.setAttribute('value', `${limit}`);
+
+  const page = getPage();
+  input.addEventListener('change', (event) => {
+    const target = event.currentTarget as HTMLInputElement;
+    app({ limit: Number(target.value || 0), page });
+  });
 
   const div = document.createElement('div');
   div.appendChild(label);

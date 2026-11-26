@@ -1,9 +1,9 @@
-import { getPaginationLastPage } from '../utils/pagination/getPaginationLastPage';
+import { getPaginationLastPage } from '../../../utils/pagination/getPaginationLastPage';
 import { getLimit } from './limitInput';
-import pokemonArray from './../data/pokemon.json';
-import { renderPokemon } from './pokemonArrayDiv';
+import pokemonArray from '../../../data/pokemon.json';
+import { app } from '../../app';
 
-export const pageInput = (): HTMLDivElement => {
+export const pageInput = (page: number): HTMLDivElement => {
   const inputId = 'page';
 
   const label = document.createElement('label');
@@ -15,8 +15,13 @@ export const pageInput = (): HTMLDivElement => {
   input.setAttribute('type', 'number');
   input.setAttribute('min', '1');
   input.setAttribute('max', '100');
-  input.setAttribute('value', '1');
-  input.addEventListener('change', () => renderPokemon());
+  input.setAttribute('value', `${page}`);
+
+  const limit = getLimit();
+  input.addEventListener('change', (event) => {
+    const target = event.currentTarget as HTMLInputElement;
+    app({ limit, page: Number(target.value || 0) });
+  });
 
   const div = document.createElement('div');
   div.appendChild(label);

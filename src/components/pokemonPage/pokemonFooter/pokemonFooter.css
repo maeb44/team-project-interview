@@ -1,0 +1,13 @@
+.pokemon_footer {
+  display: flex;
+  gap: 16px;
+  border: 1px solid #06c;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.pokemon_footer input {
+  border: 1px solid #06c;
+  padding: 8px;
+  border-radius: 8px;
+}

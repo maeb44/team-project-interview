@@ -1,7 +1,7 @@
-import pokemonArray from './../data/pokemon.json';
-import { getLimit } from './limitInput';
-import { getPage } from './pageInput';
 import './pokemonArrayDiv.css';
+import pokemonArray from '../../../../data/pokemon.json';
+import { getLimit } from '../../pokemonFooter/limitInput';
+import { getPage } from '../../pokemonFooter/pageInput';
 
 export const pokemonArrayDiv = (): HTMLDivElement => {
   const div = document.createElement('div');
@@ -41,7 +41,7 @@ export const renderPokemon = (): void => {
     pokemonElement.innerHTML = `
             <div>${currentPokemon.id}</div>
             <div>${currentPokemon.name}</div>
-            <div>
+            <div class="pokemon_array__image_block">
                 <img src="${currentPokemon.image}" alt="no image">
             </div>
             <div>${currentPokemon.weight} x ${currentPokemon.height}</div>
