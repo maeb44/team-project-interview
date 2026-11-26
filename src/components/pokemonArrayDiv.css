@@ -1,0 +1,19 @@
+.pokemon_array {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pokemon_array__element {
+  width: 200px;
+  border: 1px solid #06c;
+  padding: 8px;
+  border-radius: 8px;
+
+  & img {
+    max-width: 180px;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+  }
+}
