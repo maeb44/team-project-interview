@@ -3,12 +3,42 @@ export type State = {
   category: Category[];
 };
 
+export type Pokemon = {
+  id: number;
+  name: string;
+  image: string;
+  weight: number;
+  height: number;
+  baseExperience: number;
+  types: Category[];
+  hp: number;
+  attack: number;
+  defense: number;
+  specialAttack: number;
+  specialDefense: number;
+  speed: number;
+};
+
+export type Filters = {
+  filterTypes: Category[];
+  hp: minMax;
+  attack: minMax;
+  defense: minMax;
+  specAttack: minMax;
+  specDefense: minMax;
+  speed: minMax;
+};
+type minMax = {
+  min: number;
+  max: number;
+};
+
 type FavoritePokemon = {
   id: number;
   date: string;
 };
 
-type Category =
+export type Category =
   | 'grass'
   | 'poison'
   | 'fire'
