@@ -1,3 +1,4 @@
+import { updateUrl } from '../utils/pagination/updateUrl';
 import { renderPokemon } from './pokemonArrayDiv';
 
 export const limitInput = (): HTMLDivElement => {
@@ -7,13 +8,22 @@ export const limitInput = (): HTMLDivElement => {
   label.setAttribute('for', inputId);
   label.textContent = 'Limit: ';
 
+  const currentLimit = getLimit();
+  const max = 100;
+  const min = 1;
+
   const input = document.createElement('input');
   input.setAttribute('id', inputId);
   input.setAttribute('type', 'number');
-  input.setAttribute('min', '1');
-  input.setAttribute('max', '100');
-  input.setAttribute('value', '10');
-  input.addEventListener('change', () => renderPokemon());
+  input.setAttribute('min', `${min}`);
+  input.setAttribute('max', `${max}`);
+  input.setAttribute('value', `${currentLimit}`);
+  input.addEventListener('change', () => {
+    const value = Number(input.value);
+    if (value > max || value < min) return;
+    updateUrl(undefined, value);
+    renderPokemon();
+  });
 
   const div = document.createElement('div');
   div.appendChild(label);
@@ -23,15 +33,8 @@ export const limitInput = (): HTMLDivElement => {
 };
 
 export const getLimit = (): number => {
-  const defaultValue = 10;
-
-  const node = document.querySelector('#limit');
-
-  if (!(node instanceof HTMLInputElement)) {
-    return defaultValue;
-  }
-
-  const limit = Number(node.value);
-
-  return limit > 0 ? limit : defaultValue;
+  const params = new URLSearchParams(window.location.search);
+  const limit = Number(params.get('limit'));
+  if (limit < 0) return 10;
+  return limit || 10;
 };
