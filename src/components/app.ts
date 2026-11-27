@@ -13,6 +13,7 @@ export const app = (): void => {
   div.appendChild(pokemonArrayDiv());
   div.appendChild(limitInput());
   div.appendChild(pageInput());
+  window.addEventListener('popstate', () => renderPokemon());
 
   renderPokemon();
 };
